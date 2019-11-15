@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="DTO\" />
+    <Folder Include="wwwroot\lib\Images\" />
   </ItemGroup>
 
 </Project>
