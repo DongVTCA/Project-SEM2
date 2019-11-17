@@ -1,16 +1,13 @@
-﻿@model IEnumerable<Project_SEM2_HNDShop.Models.User>
-@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Project_SEM2_HNDShop.DTO.ProductDto>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                a
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                b
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.)
@@ -26,10 +23,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @Html.DisplayFor(modelItem => item.product.ProName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                    @Html.DisplayFor(modelItem => item.brand.BrandName)
                 </td>
                 @*<td>
                         @Html.DisplayFor(modelItem => item.)
@@ -46,4 +43,3 @@
         }
     </tbody>
 </table>
-

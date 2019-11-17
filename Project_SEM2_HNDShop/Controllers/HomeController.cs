@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Project_SEM2_HNDShop.Data;
+using Project_SEM2_HNDShop.DTO;
 using Project_SEM2_HNDShop.Models;
 using Project_SEM2_HNDShop.Services;
-
 namespace Project_SEM2_HNDShop.Controllers
 {
     public class HomeController : Controller
@@ -28,12 +28,38 @@ namespace Project_SEM2_HNDShop.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var user = _context.Users.ToList();
+            return View(user);
         }
 
         public IActionResult Register()
         {
             return View();
+        }
+
+        public IActionResult Product()
+        {
+            var dm = _context.Products.ToList();
+            //var productdto = new ProductDto();
+            var query = from cate in _context.Categories.ToList()
+                        from product in _context.Products.ToList()
+                        where cate.Id == product.CateId
+                        from subrand in _context.SubBrands.ToList()
+                        where product.SubBrandId == subrand.Id
+                        from brand in _context.Brands.ToList()
+                        where subrand.BrandId == brand.Id
+                        from promo in _context.Promotions.ToList()
+                        where product.PromoId == promo.Id
+                        select new ProductDto()
+                        {
+                            product = product,
+                            category = cate,
+                            subBrand = subrand,
+                            brand = brand,
+                            promotion = promo
+                        };
+            var listproductdto = query.ToList();
+            return View(listproductdto);
         }
         public IActionResult Login()
         {

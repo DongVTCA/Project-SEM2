@@ -14354,6 +14354,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\Product.cshtml",
+      "TargetPath": "Views\\Home\\Product.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"

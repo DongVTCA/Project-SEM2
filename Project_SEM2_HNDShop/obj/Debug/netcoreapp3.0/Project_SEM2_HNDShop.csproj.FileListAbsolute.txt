@@ -252,3 +252,4 @@ G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDSho
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.csproj.CopyComplete
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.dll
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.pdb
+G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Razor\Views\Home\Product.cshtml.g.cs
