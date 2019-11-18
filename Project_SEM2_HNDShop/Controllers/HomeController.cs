@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -28,8 +29,45 @@ namespace Project_SEM2_HNDShop.Controllers
 
         public IActionResult Index()
         {
-            var user = _context.Users.ToList();
-            return View(user);
+            if (HttpContext.Session.GetString("userEmail") != null)
+            {
+                ViewBag.session = HttpContext.Session.GetString("userEmail");
+            }
+            else
+            {
+                ViewBag.session = null;
+            }
+            var query = from cate in _context.Categories.ToList()
+                        from product in _context.Products.ToList()
+                        where cate.Id == product.CateId
+                        from subrand in _context.SubBrands.ToList()
+                        where product.SubBrandId == subrand.Id
+                        from brand in _context.Brands.ToList()
+                        where subrand.BrandId == brand.Id
+                        from promo in _context.Promotions.ToList()
+                        where product.PromoId == promo.Id
+                        select new ProductDto()
+                        {
+                            product = product,
+                            category = cate,
+                            subBrand = subrand,
+                            brand = brand,
+                            promotion = promo
+                        };
+            var listproductdto = query.ToList();
+
+            return View(listproductdto);
+        }
+
+        public IActionResult Logout()
+        {
+            if (HttpContext.Session.GetString("userEmail") != null)
+            {
+                HttpContext.Session.Remove("userEmail");
+                HttpContext.Session.Clear();
+                return View(nameof(Index));
+            }
+            return View();
         }
 
         public IActionResult Register()
@@ -39,8 +77,6 @@ namespace Project_SEM2_HNDShop.Controllers
 
         public IActionResult Product()
         {
-            var dm = _context.Products.ToList();
-            //var productdto = new ProductDto();
             var query = from cate in _context.Categories.ToList()
                         from product in _context.Products.ToList()
                         where cate.Id == product.CateId
@@ -80,6 +116,7 @@ namespace Project_SEM2_HNDShop.Controllers
                 }
                 if (checkpass == true)
                 {
+                    HttpContext.Session.SetString("userEmail", loginUser.Email);
                     return RedirectToAction(nameof(Index));
                 }
             }

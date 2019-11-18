@@ -1,49 +1,18 @@
-﻿@model IEnumerable<Project_SEM2_HNDShop.Models.User>
-@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Project_SEM2_HNDShop.DTO.ProductDto>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.)
-                </th>
-                <th></th>*@
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>*@
-            </tr>
-        }
-    </tbody>
-</table>
-
+<div class="card-columns list-card">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">@item.subBrand.SubBrandName</p>
+                <h5 class="card-title">@item.product.ProName</h5>
+                <p class="card-text">@item.product.SellPrice</p>
+            </div>
+            @*<div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>*@
+        </div>
+    }
+</div>

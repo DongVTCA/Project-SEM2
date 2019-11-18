@@ -14379,6 +14379,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\Logout.cshtml",
+      "TargetPath": "Views\\Home\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Login.cshtml",
       "TargetPath": "Views\\Home\\Login.cshtml",
       "FileKind": "mvc"
