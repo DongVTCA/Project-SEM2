@@ -29,9 +29,9 @@ namespace Project_SEM2_HNDShop.Controllers
 
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("userEmail") != null)
+            if (HttpContext.Session.GetString("userName") != null && HttpContext.Session.GetString("userId") != null)
             {
-                ViewBag.session = HttpContext.Session.GetString("userEmail");
+                ViewBag.sessionName = HttpContext.Session.GetString("userName");
             }
             else
             {
@@ -61,13 +61,17 @@ namespace Project_SEM2_HNDShop.Controllers
 
         public IActionResult Logout()
         {
-            if (HttpContext.Session.GetString("userEmail") != null)
+            if (HttpContext.Session.GetString("userName") != null && HttpContext.Session.GetString("userId") != null)
             {
-                HttpContext.Session.Remove("userEmail");
+                HttpContext.Session.Remove("userName");
+                HttpContext.Session.Remove("userId");
                 HttpContext.Session.Clear();
                 return View(nameof(Index));
             }
-            return View();
+            else
+            {
+                return View(nameof(Index));
+            }
         }
 
         public IActionResult Register()
@@ -116,7 +120,8 @@ namespace Project_SEM2_HNDShop.Controllers
                 }
                 if (checkpass == true)
                 {
-                    HttpContext.Session.SetString("userEmail", loginUser.Email);
+                    HttpContext.Session.SetString("userName", loginUser.FirstName);
+                    HttpContext.Session.SetInt32("userId", loginUser.Id);
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -142,6 +147,7 @@ namespace Project_SEM2_HNDShop.Controllers
                     user.UserPassword = hashpass;
                     _context.Add(user);
                     await _context.SaveChangesAsync();
+                    ViewBag.TitleRegisterSuccessfully = "Dang ky thanh cong!";
                     return RedirectToAction(nameof(Login));
                 }
             }

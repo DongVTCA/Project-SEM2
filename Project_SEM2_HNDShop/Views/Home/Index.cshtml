@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<Project_SEM2_HNDShop.DTO.ProductDto>
 
-<div class="card-columns list-card">
+<div class="row text-center">
     @foreach (var item in Model)
     {
-        <div class="card">
+         <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
             <img class="card-img-top" src=".../100px180/" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">@item.subBrand.SubBrandName</p>
@@ -14,5 +15,6 @@
                     <small class="text-muted">Last updated 3 mins ago</small>
                 </div>*@
         </div>
+         </div>
     }
 </div>

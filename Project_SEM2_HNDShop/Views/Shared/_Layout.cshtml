@@ -93,15 +93,27 @@
                             </ul>
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link text-light" href="#" id="navbarDropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Login
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" asp-controller="Home" asp-action="Logout">Logout</a>
-                                    </div>
+                                    @if (@ViewBag.sessionName != null)
+                                    {
+                                        <a class="nav-link text-light" href="#" id="navbarDropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Hello @ViewBag.sessionName
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Profile</a>
+                                            <a class="dropdown-item" href="#">Change Password</a>
+                                            <a class="dropdown-item" asp-controller="Home" asp-action="Logout">Logout</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <a href="Home/Login" class="nav-link text-light" id="navbarDropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Login
+                                        </a>
+                                    }
+
+
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-light" href="#">Cart</a>
