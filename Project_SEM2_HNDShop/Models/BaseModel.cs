@@ -10,5 +10,7 @@ namespace Project_SEM2_HNDShop.Models
     {
         [Required]
         public int Id { get; set; }
+
+        public DateTime? CreateTime { get; set; }
     }
 }

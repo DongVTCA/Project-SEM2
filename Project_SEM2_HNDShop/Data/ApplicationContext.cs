@@ -19,5 +19,12 @@ namespace Project_SEM2_HNDShop.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<SubBrand> SubBrands { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Orderdetail> Orderdetails { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Configuation> Configuations { get; set; }
+        public DbSet<Cart> Carts { get; set; }
     }
 }

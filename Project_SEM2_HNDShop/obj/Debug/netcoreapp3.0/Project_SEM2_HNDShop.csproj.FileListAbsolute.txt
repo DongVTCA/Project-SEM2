@@ -230,7 +230,6 @@ G:\Project-SEM2\Project_SEM2_HNDShop\bin\Debug\netcoreapp3.0\runtimes\win\lib\ne
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.csprojAssemblyReference.cache
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\staticwebassets\Project_SEM2_HNDShop.StaticWebAssets.Manifest.cache
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\staticwebassets\Project_SEM2_HNDShop.StaticWebAssets.xml
-G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.MvcApplicationPartsAssemblyInfo.cache
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.RazorAssemblyInfo.cache
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.RazorAssemblyInfo.cs
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.AssemblyInfoInputs.cache
@@ -254,3 +253,5 @@ G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDSho
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.pdb
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Razor\Views\Home\Product.cshtml.g.cs
 G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Razor\Views\Home\Logout.cshtml.g.cs
+G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Razor\Views\Cart\Index.cshtml.g.cs
+G:\Project-SEM2\Project_SEM2_HNDShop\obj\Debug\netcoreapp3.0\Project_SEM2_HNDShop.MvcApplicationPartsAssemblyInfo.cache
