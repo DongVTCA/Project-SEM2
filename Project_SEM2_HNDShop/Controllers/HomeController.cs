@@ -66,7 +66,7 @@ namespace Project_SEM2_HNDShop.Controllers
                 HttpContext.Session.Remove("userName");
                 HttpContext.Session.Remove("userId");
                 HttpContext.Session.Clear();
-                return View(nameof(Index));
+                return Redirect("/");
             }
             else
             {
