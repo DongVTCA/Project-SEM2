@@ -28,7 +28,7 @@ namespace Project_SEM2_HNDShop.Controllers
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 ViewBag.message = "You must login to view cart";
-                return View();
+                return RedirectToAction("Login", "Home");
             }
             else
             {
@@ -38,9 +38,10 @@ namespace Project_SEM2_HNDShop.Controllers
             }
         }
 
-        [Route("Cart/AddToCart/{id?}/{quantity?}")]
+       
         public IActionResult AddToCart(int id, int quantity)
         {
+         
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Login", "Home");
@@ -57,13 +58,13 @@ namespace Project_SEM2_HNDShop.Controllers
                     cartItem.Quantity += cart.Quantity;
                     _context.Carts.Update(cartItem);
                     _context.SaveChanges();
+                    return RedirectToAction("Index", "Home");
                 }
                 _context.Add(cart);
                 _context.SaveChanges();
-                return View();
+                return RedirectToAction("Index", "Home");
             }
         }
-        [Route("Cart/UpdateCountCart/{id?}/{quantity?}")]
         public IActionResult UpdateCountCart(int id, int quantity)
         {
             var userId = HttpContext.Session.GetInt32("userId");
@@ -73,14 +74,13 @@ namespace Project_SEM2_HNDShop.Controllers
             }
             else
             {
-                var cartItem = _context.Carts.FirstOrDefault(c => c.ProductId == id && c.UserId == userId);
+                var cartItem = _context.Carts.FirstOrDefault(c => c.Id == id && c.UserId == userId);
                 cartItem.Quantity = quantity;
                 _context.Update(cartItem);
                 _context.SaveChanges();
                 return View(nameof(Index));
             }
         }
-        [Route("Cart/DeleteCartItem/{id?}")]
         public IActionResult DeleteCartItem(int id)
         {
             var userId = HttpContext.Session.GetInt32("userId");
@@ -90,7 +90,7 @@ namespace Project_SEM2_HNDShop.Controllers
             }
             else
             {
-                var cartItem = _context.Carts.FirstOrDefault(c => c.ProductId == id && c.UserId == userId);
+                var cartItem = _context.Carts.FirstOrDefault(c => c.Id == id && c.UserId == userId);
                 if (cartItem != null)
                 {
                     _context.Carts.Remove(cartItem);

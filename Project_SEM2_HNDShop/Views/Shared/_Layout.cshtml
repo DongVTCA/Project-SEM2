@@ -19,30 +19,8 @@
     <link rel="stylesheet" href="~/css/index.css" />
 </head>
 <body>
-    <header>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Project_SEM2_HNDShop</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>*@
 
+    <header>
         <div class="card headerweb">
             <div class="navigation">
                 <div class="container-fluid">
@@ -60,9 +38,11 @@
                                         Brands
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        @foreach (var item in ViewData["subbrand"] as List<SubBrand>)
+                                        {
+                                            <a class="dropdown-item" href="#">@item.SubBrandName</a>
+                                        }
+                                      
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -71,9 +51,11 @@
                                         Categories
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        @foreach (var item in ViewData["category"] as List<Category>)
+                                        {
+                                            <a class="dropdown-item" href="#">@item.CateType</a>
+                                        }
+                                       
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -82,9 +64,10 @@
                                         Promotions
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        @foreach (var item in ViewData["promotion"] as List<Promotion>)
+                                        {
+                                            <a class="dropdown-item" href="#">@item.PromoTitle</a>
+                                        }
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -107,13 +90,11 @@
                                     }
                                     else
                                     {
-                                        <a href="/Home/Login" class="nav-link text-light" id="navbarDropdownMenuLink"
-                                            aria-haspopup="true" aria-expanded="false">
+                                        <a asp-action="Login" asp-controller="Home" class="nav-link text-light"
+                                           aria-haspopup="true" aria-expanded="false">
                                             Login
                                         </a>
                                     }
-
-
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-light" href="#">Cart</a>
