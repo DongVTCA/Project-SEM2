@@ -6,158 +6,136 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Project_SEM2_HNDShop.Data;
 using Project_SEM2_HNDShop.DTO;
 using Project_SEM2_HNDShop.Models;
 using Project_SEM2_HNDShop.Services;
-namespace Project_SEM2_HNDShop.Controllers
-{
-    public class HomeController : Controller
-    {
+namespace Project_SEM2_HNDShop.Controllers {
+    public class HomeController : Controller {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationContext _context;
         private MD5 md5;
         private static EnCryptography _encrypt;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationContext context)
-        {
+        public HomeController (ILogger<HomeController> logger, ApplicationContext context) {
             _logger = logger;
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            if (HttpContext.Session.GetString("userName") != null && HttpContext.Session.GetString("userId") != null)
-            {
-                ViewBag.sessionName = HttpContext.Session.GetString("userName");
-            }
-            else
-            {
+        public IActionResult Index () {
+            if (HttpContext.Session.GetString ("userName") != null && HttpContext.Session.GetString ("userId") != null) {
+                ViewBag.sessionName = HttpContext.Session.GetString ("userName");
+            } else {
                 ViewBag.session = null;
             }
-            var query = from cate in _context.Categories.ToList()
-                        from product in _context.Products.ToList()
-                        where cate.Id == product.CateId
-                        from subrand in _context.SubBrands.ToList()
-                        where product.SubBrandId == subrand.Id
-                        from brand in _context.Brands.ToList()
-                        where subrand.BrandId == brand.Id
-                        from promo in _context.Promotions.ToList()
-                        where product.PromoId == promo.Id
-                        select new ProductDto()
-                        {
-                            product = product,
-                            category = cate,
-                            subBrand = subrand,
-                            brand = brand,
-                            promotion = promo
-                        };
-            var listproductdto = query.ToList();
+            var query = from cate in _context.Categories.ToList ()
+            from product in _context.Products.ToList ()
+            where cate.Id == product.CateId
+            from subrand in _context.SubBrands.ToList ()
+            where product.SubBrandId == subrand.Id
+            from brand in _context.Brands.ToList ()
+            where subrand.BrandId == brand.Id
+            from promo in _context.Promotions.ToList ()
+            where product.PromoId == promo.Id
+            select new ProductDto () {
+                product = product,
+                category = cate,
+                subBrand = subrand,
+                brand = brand,
+                promotion = promo
+            };
+            var listproductdto = query.ToList ();
 
-            return View(listproductdto);
+            return View (listproductdto);
         }
 
-        public IActionResult Logout()
-        {
-            if (HttpContext.Session.GetString("userName") != null && HttpContext.Session.GetString("userId") != null)
-            {
-                HttpContext.Session.Remove("userName");
-                HttpContext.Session.Remove("userId");
-                HttpContext.Session.Clear();
-                return Redirect("/");
-            }
-            else
-            {
-                return View(nameof(Index));
+        
+        public IActionResult Logout () {
+            if (HttpContext.Session.GetString ("userName") != null && HttpContext.Session.GetString ("userId") != null) {
+                HttpContext.Session.Remove ("userName");
+                HttpContext.Session.Remove ("userId");
+                HttpContext.Session.Clear ();
+                return Redirect ("/");
+            } else {
+                return View (nameof (Index));
             }
         }
 
-        public IActionResult Register()
-        {
-            return View();
+        public IActionResult Register () {
+            return View ();
         }
 
-        public IActionResult Product()
-        {
-            var query = from cate in _context.Categories.ToList()
-                        from product in _context.Products.ToList()
-                        where cate.Id == product.CateId
-                        from subrand in _context.SubBrands.ToList()
-                        where product.SubBrandId == subrand.Id
-                        from brand in _context.Brands.ToList()
-                        where subrand.BrandId == brand.Id
-                        from promo in _context.Promotions.ToList()
-                        where product.PromoId == promo.Id
-                        select new ProductDto()
-                        {
-                            product = product,
-                            category = cate,
-                            subBrand = subrand,
-                            brand = brand,
-                            promotion = promo
-                        };
-            var listproductdto = query.ToList();
-            return View(listproductdto);
+        public IActionResult Product () {
+            var query = from cate in _context.Categories.ToList ()
+            from product in _context.Products.ToList ()
+            where cate.Id == product.CateId
+            from subrand in _context.SubBrands.ToList ()
+            where product.SubBrandId == subrand.Id
+            from brand in _context.Brands.ToList ()
+            where subrand.BrandId == brand.Id
+            from promo in _context.Promotions.ToList ()
+            where product.PromoId == promo.Id
+            select new ProductDto () {
+                product = product,
+                category = cate,
+                subBrand = subrand,
+                brand = brand,
+                promotion = promo
+            };
+            var listproductdto = query.ToList ();
+            return View (listproductdto);
         }
-        public IActionResult Login()
-        {
-            return View();
+        public IActionResult Login () {
+            return View ();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
-        {
+        public async Task<IActionResult> Login (string email, string password) {
             bool checkpass = false;
-            var loginUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-            if (ModelState.IsValid)
-            {
-                using (md5 = MD5.Create())
-                {
-                    _encrypt = new EnCryptography();
-                    checkpass = _encrypt.VerifyMd5Hash(md5, password, loginUser.UserPassword);
+            var loginUser = await _context.Users.FirstOrDefaultAsync (u => u.Email == email);
+            if (ModelState.IsValid) {
+                using (md5 = MD5.Create ()) {
+                    _encrypt = new EnCryptography ();
+                    checkpass = _encrypt.VerifyMd5Hash (md5, password, loginUser.UserPassword);
                 }
-                if (checkpass == true)
-                {
-                    HttpContext.Session.SetString("userName", loginUser.FirstName);
-                    HttpContext.Session.SetInt32("userId", loginUser.Id);
-                    return RedirectToAction(nameof(Index));
+                if (checkpass == true) {
+                    HttpContext.Session.SetString ("userName", loginUser.FirstName);
+                    HttpContext.Session.SetInt32 ("userId", loginUser.Id);
+                    return RedirectToAction (nameof (Index));
                 }
             }
-            return View();
+            return View ();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Register([Bind("Email,UserPassword,FirstName,LastName,Phone,Address")] User user)
-        {
+        public async Task<IActionResult> Register ([Bind ("Email,UserPassword,FirstName,LastName,Phone,Address")] User user) {
             string hashpass;
-            if (ModelState.IsValid)
-            {
-                var checkRegister = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
-                if (checkRegister == null)
-                {
-                    using (md5 = MD5.Create())
-                    {
-                        _encrypt = new EnCryptography();
-                        hashpass = _encrypt.GetMd5Hash(md5, user.UserPassword);
+            if (ModelState.IsValid) {
+                var checkRegister = await _context.Users.FirstOrDefaultAsync (u => u.Email == user.Email);
+                if (checkRegister == null) {
+                    using (md5 = MD5.Create ()) {
+                        _encrypt = new EnCryptography ();
+                        hashpass = _encrypt.GetMd5Hash (md5, user.UserPassword);
                     }
                     user.Active = 1;
                     user.Rank = 0;
                     user.RoleId = 1;
                     user.UserPassword = hashpass;
-                    _context.Add(user);
-                    await _context.SaveChangesAsync();
+                    _context.Add (user);
+                    await _context.SaveChangesAsync ();
                     ViewBag.TitleRegisterSuccessfully = "Dang ky thanh cong!";
-                    return RedirectToAction(nameof(Login));
+                    return RedirectToAction (nameof (Login));
                 }
             }
-            return View();
+            return View ();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        [ResponseCache (Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error () {
+            return View (new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
