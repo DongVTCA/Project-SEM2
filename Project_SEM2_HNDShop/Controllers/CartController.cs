@@ -33,15 +33,16 @@ namespace Project_SEM2_HNDShop.Controllers
             else
             {
                 var userId = HttpContext.Session.GetInt32("userId");
-                var cart = _context.Carts.ToList().Where(c => c.UserId == userId);
-                return View(cart);
+                var listcart = _repository.GetListCartByUserId((int)userId);
+                return View(listcart);
             }
         }
 
-       
+
+
         public IActionResult AddToCart(int id, int quantity)
         {
-         
+
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Login", "Home");
