@@ -1,6 +1,6 @@
 .headerweb {
-    background-image: url(../lib/Images/banner1.png);
-    height: 30rem;
+    background-color: #000000;
+    /* height: 30rem; */
     /* Image is centered vertically and horizontally at all times */
     background-position: center center;
     /* Image doesn't repeat */
@@ -11,7 +11,7 @@
     /* This is what makes the background image rescale based on its container's size */
     background-size: cover;
     /* Pick a solid background color that will be displayed while the background image is loading */
-    background-color: #464646;
+   
 }
 
 nav {

@@ -1,0 +1,293 @@
+body {
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    background-color: #fff;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+}
+
+body, html {
+    height: 100%;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+ body {
+    display: block;
+    margin: 8px;
+}
+
+
+ html {
+    color: -internal-root-color;
+}
+
+@media (min-width: 960px) {
+    .account_registration___3cWCX {
+        margin: 120px auto 0;
+        min-height: calc(100vh - 167px);
+    }
+}
+
+.account_registration___3cWCX {
+    margin-top: 100px;
+    padding: 40px 0 20px;
+    
+}
+
+@media (min-width: 960px) {
+    .offset-l-2 {
+        margin-left: 8.33333%;
+    }
+}
+
+@media (min-width: 960px) {
+    .col-l-9 {
+        width: 37.5%;
+    }
+}
+
+.col-s-12 {
+    width: 100%;
+}
+
+[class*=col-hg], [class*=col-l], [class*=col-m], [class*=col-s], [class*=col-xl] {
+    float: left;
+    padding: 0 15px;
+}
+
+@media (min-width: 1280px) {
+    .gl-heading--xl, h2 {
+        font-size: 52px;
+        line-height: 44px;
+    }
+}
+
+.gl-heading--xl, h2 {
+    font-size: 44px;
+    line-height: 38px;
+}
+
+.gl-heading, h1, h2, h3, h4, h5, h6 {
+    font-family: AdineuePRO, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.account_registration___3cWCX {
+    display: flex;
+}
+
+form {
+    width: 100%;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+@media (min-width: 1280px) {
+    .gl-heading--s, h5 {
+        font-size: 20px;
+        line-height: 18px;
+    }
+}
+
+.gl-heading--s, h5 {
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.gl-heading, h1, h2, h3, h4, h5, h6 {
+    font-family: AdineuePRO, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+
+h5 {
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.field___31Wur {
+    position: relative;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+.gl-vspace {
+    margin-top: 10px;
+}
+
+.field___31Wur input.field__custom___16baV.field__text--is-invalid___35ftx, .field___31Wur input[type=email].field__text--is-invalid___35ftx, .field___31Wur input[type=number].field__text--is-invalid___35ftx, .field___31Wur input[type=password].field__text--is-invalid___35ftx, .field___31Wur input[type=tel].field__text--is-invalid___35ftx, .field___31Wur input[type=text].field__text--is-invalid___35ftx, .field___31Wur textarea.field__text--is-invalid___35ftx {
+    border-bottom: none;
+    box-shadow: 0 2px 0 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .field___31Wur input[type=color], .field___31Wur input[type=date], .field___31Wur input[type=datetime-local], .field___31Wur input[type=datetime], .field___31Wur input[type=email], .field___31Wur input[type=month], .field___31Wur input[type=number], .field___31Wur input[type=password], .field___31Wur input[type=search], .field___31Wur input[type=tel], .field___31Wur input[type=text], .field___31Wur input[type=time], .field___31Wur input[type=url], .field___31Wur input[type=week], .field___31Wur select, .field___31Wur textarea {
+        font-size: 16px;
+    }
+}
+
+.field___31Wur input.field__custom___16baV, .field___31Wur input[type=email], .field___31Wur input[type=number], .field___31Wur input[type=password], .field___31Wur input[type=tel], .field___31Wur input[type=text], .field___31Wur textarea {
+    display: inline-flex;
+    width: 100%;
+    margin: 0;
+    padding: 21px;
+    font-size: 13px;
+}
+
+.field___31Wur .field__input___mlRsm {
+    height: 50px;
+    border: 1px solid #767677;
+}
+
+input[type=email], input[type=password], input[type=tel], input[type=text], textarea {
+    -webkit-appearance: none;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+}
+
+[role=button], a, area, button, input, label, select, summary, textarea {
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+}
+
+
+
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+.field___31Wur .field__input___mlRsm, .label {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #767677;
+    position: absolute;
+    pointer-events: none;
+    text-transform: uppercase;
+    left: 21px;
+    top: 14px;
+    transition: all .2s ease;
+}
+
+[role=button], a, area, button, input, label, select, summary, textarea {
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+}
+
+
+ label {
+    cursor: default;
+}
+
+@media (min-width: 1280px) {
+    .gl-heading--l, h3 {
+        font-size: 42px;
+        line-height: 38px;
+    }
+}
+
+.gl-heading--l, h3 {
+    font-size: 36px;
+    line-height: 32px;
+}
+
+.gl-heading, h1, h2, h3, h4, h5, h6 {
+    font-family: AdineuePRO, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul {
+    display: block;
+    
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+/* iconlogin */
